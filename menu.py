@@ -1,4 +1,3 @@
-import os
 from livro import Livro
 from usuario import  Usuario
 from emprestimo import emprestar,listar_emprestimos,devolver
