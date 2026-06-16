@@ -28,7 +28,6 @@ def menu():
                 elif opc_usuarios == 3: us.deletar_usuario()
                 elif opc_usuarios == 4: pass
                 else: print("Opção invalida")
-                os.system('cls')
             case 2:
                 print("MENU DE LIVROS\n 1 - Cadastrar\n 2 - Listar\n 3 - Deletar\n 4 - Voltar")
 
@@ -42,7 +41,6 @@ def menu():
                 elif opc_livros == 3: li.deletar_livro()
                 elif opc_livros == 4: pass
                 else: print("Opção invalida")
-                os.system('cls')
             case 3:
                 print("MENU DE EMPRESTIMO\n 1 - Emprestar\n 2 - Listar\n 3 - Devolver\n 4 - Voltar")
                 try:
@@ -55,7 +53,6 @@ def menu():
                 elif opc_emprestimos == 3: devolver()
                 elif opc_emprestimos == 4: pass
                 else: print("Opção invalida")
-                os.system('cls')
             case 4:
                 print("Encerrando e saindo...")
                 break
