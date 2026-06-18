@@ -4,29 +4,36 @@ class Usuario:
         self.id = 1
 
     def cadastrar_usuario(self):
-        nome = input("Digite seu nome: ").lower()
+        nome = input("Digite seu nome: ").title()
         self.usuarios.append({
             "id": self.id,
             "nome": nome
         })
         self.id += 1
+        print("\nUsuário cadastrado com sucesso!")
+
+        resposta = input("Deseja cadastrar outro usuário? (s/n) ").lower()
+        if resposta == 's':
+            self.cadastrar_usuario()
+        else:
+            return
 
     def listar_usuario(self):
         if len(self.usuarios) > 0:
             for usuario in self.usuarios:
-                print(f"Id do usuario: {usuario['id']}")
-                print(f"Nome: {usuario['nome']}")
+                print(f"\n{usuario['id']} - {usuario['nome']}")
+
         else:
-            print("Nenhum usuario existente!")
+            print("Nenhum Usuário Existente!")
 
     def deletar_usuario(self):
         if len(self.usuarios) > 0:
-            id = int(input("Digite o ID do usuario: "))
+            id = int(input("Digite o ID do Usuário: "))
             for usuario in self.usuarios:
                 if usuario['id'] == id:
                     self.usuarios.remove(usuario)
                 else:
-                    print("Usuario não encontrado!")
+                    print("Usuário não encontrado!")
         else:
-            print("Nenhum usuario existente!")
+            print("Nenhum Usuário Existente!")
 
