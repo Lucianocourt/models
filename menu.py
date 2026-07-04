@@ -63,9 +63,6 @@ def menu():
 
             case 5:
                 print("=" * 60)
-                # CORREÇÃO: o menu mostrava "1 - Exibir / 2 - Voltar" mas o código
-                # tratava opção 2 como relatorio_txt() e opção 3 como voltar —
-                # os números estavam desalinhados com o que era exibido na tela.
                 print("MENU DE RELATÓRIOS\n 1 - Exibir Relatório\n 2 - Salvar TXT\n 3 - Voltar")
                 try:
                     opc_relatorio = int(input("Escolha uma opção: "))
