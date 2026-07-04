@@ -4,7 +4,7 @@ class Usuario:
         self.id = 1
 
     def cadastrar_usuario(self):
-        nome = input("Digite seu nome: ").title()
+        nome = input("Digite seu nome: ")
         self.usuarios.append({
             "id": self.id,
             "nome": nome
@@ -32,8 +32,9 @@ class Usuario:
             for usuario in self.usuarios:
                 if usuario['id'] == id:
                     self.usuarios.remove(usuario)
-                else:
-                    print("Usuário não encontrado!")
+                    print("Usuário removido!")
+                    return
+            print("Usuário não encontrado!")
         else:
             print("Nenhum Usuário Existente!")
 

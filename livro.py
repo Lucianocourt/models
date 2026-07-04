@@ -1,41 +1,39 @@
-class Livro:
+class Usuario:
     def __init__(self):
-        self.livros = []
-        self.disponibilidade = True
+        self.usuarios = []
         self.id = 1
 
-    def cadastrar_livro(self):
-        titulo = str(input("Digite o titulo: ")).lower()
-        autor = str(input("Digite o autor: ")).lower()
-        self.livros.append({
+    def cadastrar_usuario(self):
+        nome = input("Digite seu nome: ")
+        self.usuarios.append({
             "id": self.id,
-            "titulo": titulo,
-            "autor": autor,
-            "disponivel": self.disponibilidade
+            "nome": nome
         })
         self.id += 1
+        print("\nUsuário cadastrado com sucesso!")
 
-
-    def listar_livros(self):
-        if len(self.livros) > 0:
-            for livro in self.livros:
-                print(f"ID do livro: {livro['id']}")
-                print(f"Titulo: {livro['titulo']}")
-                print(f"Autor: {livro['autor']}")
-                print(f"Disponivel: {livro['disponivel']}")
+        resposta = input("Deseja cadastrar outro usuário? (s/n) ").lower()
+        if resposta == 's':
+            self.cadastrar_usuario()
         else:
-            print("Nenhum livro Disponivel!")
+            return
 
-    def deletar_livro(self):
-        if len(self.livros) > 0:
-            self.listar_livros()
-            id =  int(input("Digite o id do livro: "))
-            for livro in self.livros:
-                if livro['id'] == id:
-                    self.livros.remove(livro)
-                    print("Livro removido!")
-                else:
-                    print("Livro não encontrado")
+    def listar_usuario(self):
+        if len(self.usuarios) > 0:
+            for usuario in self.usuarios:
+                print(f"\n{usuario['id']} - {usuario['nome']}")
+
         else:
-            print("Nenhum livro Disponivel!")
+            print("Nenhum Usuário Existente!")
 
+    def deletar_usuario(self):
+        if len(self.usuarios) > 0:
+            id = int(input("Digite o ID do Usuário: "))
+            for usuario in self.usuarios:
+                if usuario['id'] == id:
+                    self.usuarios.remove(usuario)
+                    print("Usuário removido!")
+                    return
+            print("Usuário não encontrado!")
+        else:
+            print("Nenhum Usuário Existente!")
