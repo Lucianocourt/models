@@ -1,39 +1,50 @@
-class Usuario:
+class Livro:
     def __init__(self):
-        self.usuarios = []
+        self.livros = []
         self.id = 1
 
-    def cadastrar_usuario(self):
-        nome = input("Digite seu nome: ")
-        self.usuarios.append({
+    def cadastrar_livro(self):
+        titulo = input("Digite o título do livro: ")
+        autor = input("Digite o autor do livro: ")
+        self.livros.append({
             "id": self.id,
-            "nome": nome
+            "titulo": titulo,
+            "autor": autor,
+            "disponivel": True
         })
         self.id += 1
-        print("\nUsuário cadastrado com sucesso!")
+        print("\nLivro cadastrado com sucesso!")
 
-        resposta = input("Deseja cadastrar outro usuário? (s/n) ").lower()
+        resposta = input("Deseja cadastrar outro livro? (s/n) ").lower()
         if resposta == 's':
-            self.cadastrar_usuario()
-        else:
-            return
+            self.cadastrar_livro()
 
-    def listar_usuario(self):
-        if len(self.usuarios) > 0:
-            for usuario in self.usuarios:
-                print(f"\n{usuario['id']} - {usuario['nome']}")
-
+    def listar_livros(self):
+        if len(self.livros) > 0:
+            for livro in self.livros:
+                status = "Disponível" if livro["disponivel"] else "Emprestado"
+                print(f"\n{livro['id']} - {livro['titulo']} | {livro['autor']} | {status}")
         else:
-            print("Nenhum Usuário Existente!")
+            print("Nenhum Livro Existente!")
 
-    def deletar_usuario(self):
-        if len(self.usuarios) > 0:
-            id = int(input("Digite o ID do Usuário: "))
-            for usuario in self.usuarios:
-                if usuario['id'] == id:
-                    self.usuarios.remove(usuario)
-                    print("Usuário removido!")
-                    return
-            print("Usuário não encontrado!")
+    def deletar_livro(self):
+        if len(self.livros) > 0:
+            id = int(input("Digite o ID do Livro: "))
+
+            # CORREÇÃO: não modificar a lista enquanto itera sobre ela
+            # Guarda o livro encontrado primeiro, depois remove
+            livro_encontrado = None
+            for livro in self.livros:
+                if livro['id'] == id:
+                    livro_encontrado = livro
+                    break  # para o loop ao encontrar
+
+            if livro_encontrado:
+                self.livros.remove(livro_encontrado)
+                print("Livro removido!")
+            else:
+                # CORREÇÃO: o else estava dentro do for (só executava se o loop
+                # terminasse sem break), agora está no if/else correto
+                print("Livro não encontrado!")
         else:
-            print("Nenhum Usuário Existente!")
+            print("Nenhum Livro Existente!")
