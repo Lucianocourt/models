@@ -32,7 +32,7 @@ class Usuario:
             for usuario in self.usuarios:
                 if usuario['id'] == id:
                     usuario_encontrado = usuario
-                    break  # para o loop ao encontrar
+                    break 
 
             if usuario_encontrado:
                 self.usuarios.remove(usuario_encontrado)
