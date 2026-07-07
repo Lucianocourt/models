@@ -27,8 +27,7 @@ class Usuario:
         if len(self.usuarios) > 0:
             id = int(input("Digite o ID do Usuário: "))
 
-            # CORREÇÃO: não modificar a lista enquanto itera sobre ela
-            # Guarda o usuário encontrado primeiro, depois remove
+            
             usuario_encontrado = None
             for usuario in self.usuarios:
                 if usuario['id'] == id:
@@ -39,8 +38,7 @@ class Usuario:
                 self.usuarios.remove(usuario_encontrado)
                 print("Usuário removido!")
             else:
-                # CORREÇÃO: o else estava dentro do for (só executava se o loop
-                # terminasse sem break), agora está no if/else correto
+                
                 print("Usuário não encontrado!")
         else:
             print("Nenhum Usuário Existente!")
