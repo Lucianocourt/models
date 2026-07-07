@@ -36,7 +36,7 @@ class Livro:
             for livro in self.livros:
                 if livro['id'] == id:
                     livro_encontrado = livro
-                    break  # para o loop ao encontrar
+                    break  
 
             if livro_encontrado:
                 self.livros.remove(livro_encontrado)
