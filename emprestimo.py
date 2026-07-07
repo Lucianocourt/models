@@ -14,7 +14,7 @@ def emprestar():
 
         id_usuario = int(input("Digite o id do usuario: "))
 
-        # CORREÇÃO: `pass` não é um valor — substituído por None
+      
         usuario_encontrado = None
         for usuario in us.usuarios:
             if id_usuario == usuario['id']:
@@ -24,7 +24,7 @@ def emprestar():
         if usuario_encontrado:
             id_livro = int(input("Digite o id do livro: "))
 
-            # CORREÇÃO: `pass` não é um valor — substituído por None
+           
             livro_encontrado = None
             for livro in li.livros:
                 if id_livro == livro['id']:
@@ -64,9 +64,7 @@ def devolver():
         li.listar_livros()
         id_livro = int(input("Digite o id do livro a devolver: "))
 
-        # CORREÇÃO: loop duplo aninhado (for emp / for livro) era desnecessário
-        # e frágil — dependia de comparar título como string.
-        # Agora usa o id_livro guardado no empréstimo para encontrar direto.
+       
         emp_encontrado = None
         for emp in emprestismos:
             if emp['id_livro'] == id_livro:
