@@ -31,8 +31,7 @@ class Livro:
         if len(self.livros) > 0:
             id = int(input("Digite o ID do Livro: "))
 
-            # CORREÇÃO: não modificar a lista enquanto itera sobre ela
-            # Guarda o livro encontrado primeiro, depois remove
+            
             livro_encontrado = None
             for livro in self.livros:
                 if livro['id'] == id:
@@ -43,8 +42,7 @@ class Livro:
                 self.livros.remove(livro_encontrado)
                 print("Livro removido!")
             else:
-                # CORREÇÃO: o else estava dentro do for (só executava se o loop
-                # terminasse sem break), agora está no if/else correto
+                
                 print("Livro não encontrado!")
         else:
             print("Nenhum Livro Existente!")
