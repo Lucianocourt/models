@@ -38,7 +38,7 @@ def emprestar():
                     emprestismos.append({
                         "nome_usuario": usuario_encontrado['nome'],
                         "titulo_livro": livro_encontrado['titulo'],
-                        "id_livro": livro_encontrado['id']  # guardado para facilitar a devolução
+                        "id_livro": livro_encontrado['id']  
                     })
                 else:
                     print("Livro não disponível!")
